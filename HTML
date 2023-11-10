@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Trapper Keeper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        section {
+            margin: 20px 0;
+            display: none;
+        }
+
+        h1, h2 {
+            color: #4CAF50;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Digital Trapper Keeper</h1>
+        <p>Organize your classes digitally.</p>
+    </header>
+
+    <button onclick="toggleSection('Algebra 2')">Algebra 2</button>
+    <button onclick="toggleSection('English 3')">English 3</button>
+    <button onclick="toggleSection('Digital Media')">Digital Media</button>
+    <button onclick="toggleSection('Food and Nutrition')">Food and Nutrition</button>
+    <button onclick="toggleSection('PEL Prep')">PEL Prep</button>
+    <button onclick="openDates()">Important Dates</button>
+
+    <section id="Algebra 2">
+        <h2>Algebra 2</h2>
+        <button onclick="addHomework('Algebra 2')">Add Homework</button>
+        <button onclick="addNotes('Algebra 2')">Add Notes</button>
+        <h3>Homework</h3>
+        <ul id="algebra2Homework"></ul>
+        <h3>Notes</h3>
+        <p id="algebra2Notes"></p>
+    </section>
+
+    <section id="English 3">
+        <h2>English 3</h2>
+        <button onclick="addHomework('English 3')">Add Homework</button>
+        <button onclick="addNotes('English 3')">Add Notes</button>
+        <h3>Homework</h3>
+        <ul id="english3Homework"></ul>
+        <h3>Notes</h3>
+        <p id="english3Notes"></p>
+    </section>
+
+    <section id="Digital Media">
+        <h2>Digital Media</h2>
+        <button onclick="addHomework('Digital Media')">Add Homework</button>
+        <button onclick="addNotes('Digital Media')">Add Notes</button>
+        <h3>Homework</h3>
+        <ul id="digitalMediaHomework"></ul>
+        <h3>Notes</h3>
+        <p id="digitalMediaNotes"></p>
+    </section>
+
+    <section id="Food and Nutrition">
+        <h2>Food and Nutrition</h2>
+        <button onclick="addHomework('Food and Nutrition')">Add Homework</button>
+        <button onclick="addNotes('Food and Nutrition')">Add Notes</button>
+        <h3>Homework</h3>
+        <ul id="foodNutritionHomework"></ul>
+        <h3>Notes</h3>
+        <p id="foodNutritionNotes"></p>
+    </section>
+
+    <section id="PEL Prep">
+        <h2>PEL Prep</h2>
+        <button onclick="addHomework('PEL Prep')">Add Homework</button>
+        <button onclick="addNotes('PEL Prep')">Add Notes</button>
+        <h3>Homework</h3>
+        <ul id="pelPrepHomework"></ul>
+        <h3>Notes</h3>
+        <p id="pelPrepNotes"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Rodney</p>
+    </footer>
+
+    <script>
+        function toggleSection(className) {
+            const section = document.getElementById(className);
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        function openDates() {
+            // Add your code to open Google Calendar
+            window.open('https://calendar.google.com/', '_blank');
+        }
+
+        function addHomework(className) {
+            const homeworkItem = prompt(`Add new homework for ${className}:`);
+            if (homeworkItem) {
+                const homeworkList = document.getElementById(`${className.replace(/\s+/g, '')}Homework`);
+                const listItem = document.createElement('li');
+                listItem.textContent = homeworkItem;
+                homeworkList.appendChild(listItem);
+            }
+        }
+
+        function addNotes(className) {
+            const notesItem = prompt(`Add new notes for ${className}:`);
+            if (notesItem) {
+                const notesContainer = document.getElementById(`${className.replace(/\s+/g, '')}Notes`);
+                notesContainer.textContent = notesItem;
+            }
+        }
+    </script>
+
+</body>
+</html>
